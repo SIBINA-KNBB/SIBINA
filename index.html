@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>SIBINA - Kejaksaan Negeri Bone Bolango</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      color: #f5f7fb;
+      background:
+        radial-gradient(ellipse at top, #202c40, #10141d 70%);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card {
+      width: min(100%, 520px);
+      padding: 42px 28px;
+      text-align: center;
+      background: #191f2b;
+      border: 1px solid #354054;
+      border-radius: 18px;
+      box-shadow: 0 24px 60px #0005;
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 20px;
+      color: #f2c744;
+      font-size: 32px;
+      font-weight: 900;
+      border: 2px solid #f2c744;
+      border-radius: 50%;
+      box-shadow: 0 0 25px #f2c74415;
+    }
+
+    h1 {
+      margin: 0;
+      color: #f2c744;
+      font-size: 34px;
+      letter-spacing: 5px;
+    }
+
+    h2 {
+      margin: 14px 0 8px;
+      font-size: 18px;
+    }
+
+    p {
+      color: #bdc8d8;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .progress {
+      height: 5px;
+      margin: 26px auto;
+      overflow: hidden;
+      background: #303949;
+      border-radius: 10px;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #c49a22, #fff0a3);
+      animation: loading 2s ease forwards;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 19px;
+      color: #17130a;
+      background: linear-gradient(120deg, #ffe99a, #e2b92f);
+      border: 1px solid #f2c744;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      filter: brightness(1.07);
+    }
+
+    @keyframes loading {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress span {
+        animation: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="logo">S</div>
+    <h1>SIBINA</h1>
+    <h2>Sistem Informasi Bidang Pembinaan</h2>
+    <p>
+      Kejaksaan Negeri Bone Bolango
+      <br>
+      Menghubungkan ke portal informasi...
+    </p>
+
+    <div class="progress"><span></span></div>
+
+    <a id="openSibina" class="button" href="#">
+      Buka Aplikasi SIBINA
+    </a>
+
+    <p id="status">Anda akan diarahkan ke aplikasi.</p>
+  </main>
+
+  <script>
+    // GANTI DENGAN WEB APP URL SIBINA YANG SEBENARNYA.
+    const SIBINA_URL =
+      "https://script.google.com/macros/s/AKfycbzyQiVK2kCIb5AOeMXMfXzaejc4tIsD5HXhzhsQ62mrHLmzipqY4WjaTkeYSiBNFqVM/exec";
+
+    const openButton = document.getElementById("openSibina");
+    const statusText = document.getElementById("status");
+
+    openButton.href = SIBINA_URL;
+
+    // Pengalihan otomatis setelah halaman pembuka tampil 2,5 detik.
+    window.setTimeout(function () {
+      statusText.textContent = "Membuka aplikasi SIBINA...";
+      window.location.replace(SIBINA_URL);
+    }, 2500);
+  </script>
+</body>
+</html>
